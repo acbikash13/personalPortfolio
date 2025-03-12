@@ -74,7 +74,6 @@ export default function About() {
               <h4 className="font-bold text-xl mb-2">Contact</h4>
               <ul className="space-y-2">
                 <li>sebikash10@gmail.com</li>
-                <li>(859) 786-4579</li>
                 <li>github.com/acbikash13</li>
                 <li>linkedin.com/in/acbikash13</li>
               </ul>

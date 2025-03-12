@@ -101,9 +101,7 @@ export default function Contact() {
               </div>
               <CardTitle>Phone</CardTitle>
               <CardDescription>
-                <a href="tel:+18597864579" className="hover:text-primary">
-                  (859) 786-4579
-                </a>
+                Please Email
               </CardDescription>
             </CardHeader>
           </Card>

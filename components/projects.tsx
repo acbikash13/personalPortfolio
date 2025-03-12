@@ -54,7 +54,7 @@ export default function Projects() {
       tags: ["Java", "Multithreading", "Socket Programming"],
       category: "fullstack",
       github: "https://github.com/acbikash13/Mastermind",
-      demo: "#",
+      demo: "https://github.com/acbikash13/Mastermind",
     },
     {
       id: 5,
@@ -65,7 +65,7 @@ export default function Projects() {
       tags: ["React", "Tailwind CSS", "OAuth"],
       category: "fullstack",
       github: "https://github.com/ResearchCollaborationApp/researchAndProjectCollab",
-      demo: "#",
+      demo: "https://github.com/ResearchCollaborationApp/researchAndProjectCollab",
     },
     {
       id: 6,
@@ -76,7 +76,7 @@ export default function Projects() {
       tags: ["Python", "YOLOV3", "Kafka", "Spark", "OpenCV"],
       category: "machinelearning",
       github: "https://github.com/acbikash13/kafkaObjectDetection",
-      demo: "#",
+      demo: "https://github.com/acbikash13/kafkaObjectDetection",
     },
     {
       id: 7,
@@ -98,7 +98,7 @@ export default function Projects() {
       tags: ["Python", "TensorFlow", "Keras", "PostgreSQL", "Flask"],
       category: "machinelearning",
       github: "https://github.com/acbikash13",
-      demo: "#",
+      demo: "https://github.com/acbikash13"
     },
     {
       id: 9,
@@ -109,7 +109,7 @@ export default function Projects() {
       tags: ["Python", "AWS", "PostgreSQL", "JobSpy", "Psycopg2"],
       category: "datascience",
       github: "https://github.com/acbikash13",
-      demo: "#",
+      demo: "https://github.com/acbikash13",
     },
   ]
 
