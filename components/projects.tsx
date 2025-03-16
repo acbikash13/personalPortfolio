@@ -1,23 +1,26 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Github, ExternalLink } from "lucide-react"
+import { Github, ExternalLink, X, Play } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
 export default function Projects() {
   const [filter, setFilter] = useState("all")
+  const [activeVideo, setActiveVideo] = useState(null)
+  const videoRef = useRef(null)
 
   const projects = [
     {
       id: 1,
       title: "Job Search Platform",
       description:
-        "A full stack application that helps users find the most matching jobs for their profile, built on microservice architecture with web scraping and AI-powered matching.",
+        `Developed a full-stack job search application leveraging AI and microservices architecture to enhance job recommendations. The platform integrates web scraping to aggregate job postings from multiple sources and utilizes Llama3.1 for intelligent job matching based on user profiles. Features include real-time filtering, resume parsing, and personalized job alerts.`,
       image: "/assets/appjob.jpg",
+      video: "/assets/videos/AppJobTutorial.mp4",
       tags: ["Next.js", "PostgreSQL", "TypeScript", "Express.js", "Docker", "Azure", "Llama3.1"],
       category: "fullstack",
       github: "https://github.com/acbikash13",
@@ -25,95 +28,140 @@ export default function Projects() {
     },
     {
       id: 2,
-      title: "Multiplayer Bingo Web Game",
+      title: "BloodBond - Centralized Blood Donation Platform",
       description:
-        "A real-time multiplayer Bingo game using JavaScript, WebSockets, and MongoDB for backend data storage with real-time chat functionality.",
-      image: "/assets/BingoGame.png",
-      tags: ["JavaScript", "WebSockets", "MongoDB", "Azure", "RESTful APIs"],
+        "Built for a Hack Kentucky Hackathon, it is a full-stack web platform designed to streamline blood donation and management across hospitals and blood banks. The system enables real-time donor matching, reducing manual search time by 60%. It features an inventory management module to track blood supply levels across multiple institutions, ensuring optimal resource allocation.",
+      image: "/assets/bloodBond.png",
+      video: "/assets/videos/BloodBond Tutorial.mp4",
+      tags: ["Next.js", "AWS", "PostgreSQL", "Node.js"],
       category: "fullstack",
-      github: "https://github.com/acbikash13/BINGO-GAME",
-      demo: "https://bingogame.azurewebsites.net/",
-    },
+      github: "https://github.com/orgs/BloodBondd/repositories",
+      demo: "https://project-hackathon-uutj.vercel.app/",
+    }
+,    
     {
       id: 3,
-      title: "Convolutional Neural Network App",
+      title: "Multiplayer Bingo Web Game",
       description:
-        "An image classification app that uses Convolutional Neural Networks to classify images into predefined categories with a user-friendly interface.",
-      image: "assets/ImageClassifier.png",
-      tags: ["Python", "TensorFlow", "Keras", "Flask", "Azure", "CNN"],
-      category: "machinelearning",
+        "A real-time multiplayer Bingo game featuring real-time chat, game state synchronization, and smooth player interactions using WebSockets. The backend, powered by MongoDB, stores game sessions and user progress. The game minimizes latency through optimized WebSocket event handling",
+      image: "/assets//BingoGame.png",
+      video: "/assets/videos/BingoTutorial.mp4",
+      tags: ["JavaScript", "WebSockets", "MongoDB", "Azure", "RESTful APIs"],
+      category: "fullstack",
       github: "https://github.com/acbikash13",
-      demo: "https://classiffyimagescnn.azurewebsites.net/",
+      demo: "https://bingogamee.azurewebsites.net/",
     },
     {
       id: 4,
-      title: "Mastermind Game",
+      title: "Convolutional Neural Network App",
       description:
-        "A multithreaded Java client-server application for real-time Mastermind gameplay with socket programming for communication between players.",
-      image: "assets/MasterMind.png",
-      tags: ["Java", "Multithreading", "Socket Programming"],
-      category: "fullstack",
-      github: "https://github.com/acbikash13/Mastermind",
-      demo: "https://github.com/acbikash13/Mastermind",
+        "Built an image classification application using CNNs for real-time image categorization. The app enables users to upload images, and the model predicts categories with high accuracy. Flask serves as the backend, handling image preprocessing and model inference",
+      image: "/assets/ImageClassifier.png",
+      video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      tags: ["Python", "TensorFlow", "Keras", "Flask", "Azure", "CNN"],
+      category: "machinelearning",
+      github: "https://github.com/acbikash13",
+      demo: "classifyimage.azurewebsites.net/",
     },
     {
       id: 5,
-      title: "Research Collab App",
+      title: "Mastermind Game",
       description:
-        "A university collaboration platform connecting researchers and students with advanced filtering and recommendation systems for real-time collaboration.",
-      image: "/placeholder.svg",
-      tags: ["React", "Tailwind CSS", "OAuth"],
+        "A multithreaded Java-based client-server game implementing the classic Mastermind logic puzzle. The server handles multiple concurrent player sessions using socket programming, ensuring a smooth, interactive experience",
+      image: "/assets/MasterMind.png",
+      video: "/assets/videos/Mastermind Tutorial.mp4",
+      tags: ["Java", "Multithreading", "Socket Programming"],
       category: "fullstack",
-      github: "https://github.com/ResearchCollaborationApp/researchAndProjectCollab",
-      demo: "https://github.com/ResearchCollaborationApp/researchAndProjectCollab",
+      github: "https://github.com/acbikash13/Mastermind",
+      demo: "#",
     },
     {
       id: 6,
-      title: "Real-Time Object Detection System",
+      title: "Research Collab App",
       description:
-        "A real-time object detection pipeline using Kafka for message streaming and Spark for distributed processing, integrating YOLO for object detection.",
-      image: "/assets/RealTimeObjectDetection.png",
-      tags: ["Python", "YOLOV3", "Kafka", "Spark", "OpenCV"],
-      category: "machinelearning",
-      github: "https://github.com/acbikash13/kafkaObjectDetection",
-      demo: "https://github.com/acbikash13/kafkaObjectDetection",
+        "A university research collaboration platform designed to connect researchers and students. The app features advanced filtering, project discovery, and AI-powered recommendation systems for research opportunities. Secure authentication is implemented using OAuth",
+      image: "/assets/ResearchCollabs.png",
+      video: "/assets/videos/Research Collab Tutorials.mov",
+      tags: ["React", "Tailwind CSS", "OAuth"],
+      category: "fullstack",
+      github: "https://github.com/ResearchCollaborationApp/researchAndProjectCollab",
+      demo: "#",
     },
     {
       id: 7,
-      title: "Sentiment Analysis Platform",
+      title: "Real-Time Object Detection System",
       description:
-        "A sentiment analysis platform that analyzes over 20M+ Rate My Professor reviews with 86% sentiment accuracy using DistilBERT and NLP techniques.",
-      image: "/assets/sentimentAnalysis.png",
-      tags: ["DistilBERT", "PySpark", "NLTK", "Keras", "Transformers", "PyTorch"],
-      category: "datascience",
-      github: "https://github.com/acbikash13",
-      demo: "https://colab.research.google.com/drive/13iDfzXDdqMuM5Xvj8cRIZ7WS8AYBcqeB#scrollTo=cRKGzGDOc6sS",
+        "Developed a real-time object detection pipeline integrating Kafka for message streaming and Spark for distributed processing. The system leverages YOLOv3 for fast and accurate object detection on video streams",
+      image: "/assets/RealTimeObjectDetection.png",
+      video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+      tags: ["Python", "YOLOV3", "Kafka", "Spark", "OpenCV"],
+      category: "machinelearning",
+      github: "https://github.com/acbikash13/kafkaObjectDetection",
+      demo: "#",
     },
     {
       id: 8,
-      title: "Defects Coil Detection System",
+      title: "Sentiment Analysis Platform",
       description:
-        "An ML pipeline for industrial defect coil production detection, increasing detection accuracy by 30% with optimized data processing.",
-      image: "/assets/DefectCoil.png?height=300&width=300",
-      tags: ["Python", "TensorFlow", "Keras", "PostgreSQL", "Flask"],
-      category: "machinelearning",
-      github: "https://github.com/acbikash13",
-      demo: "https://github.com/acbikash13"
+        "A large-scale sentiment analysis system that processes over 21 million RateMyProfessor reviews, achieving 86% accuracy using a fine-tuned DistilBERT model. The system is optimized with PySpark for large-scale data processing, reducing training time by 30%",
+      image: "/assets/sentimentAnalysis.png",
+      video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+      tags: ["DistilBERT", "PySpark", "NLTK", "Keras", "Transformers", "PyTorch"],
+      category: "datascience",
+      github: "https://github.com/acbikash13/RateMyProfessorSentimentAnalysis",
+      demo: "#",
     },
     {
       id: 9,
+      title: "Defects Coil Detection System",
+      description:
+        "An industrial machine learning pipeline developed to detect defects in coil production in collaboration with North American Stainless. The model improved defect detection accuracy by 30%, leveraging deep learning techniques. PostgreSQL stores production data, and Flask serves as the API layer. Used Neural Networks, Built Data Pipelines, Performed Outlier Detections, and evaluated 10+ ML Algorithms. Worked with about 50GB of data. Can not share the code due to NDA with NAS.",
+      image: "/assets/DefectCoil.png",
+      video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+      tags: ["Python", "TensorFlow", "Keras", "PostgreSQL", "Flask", "Neural Networks", "Deep Learning"],
+      category: "machinelearning",
+      github: "https://github.com/acbikash13",
+      demo: "#",
+    },
+    {
+      id: 10,
       title: "Job Scraper and Recommendation Tool",
       description:
-        "Automated job data collection using Python-based scraper with JobSpy and Psycopg2, scheduling CRON jobs to extract and store job postings.",
-      image: "/placeholder.svg",
+        " Built an automated job scraping tool using Python and JobSpy, storing job postings in an AWS-hosted PostgreSQL database. The system schedules CRON jobs to collect data every 30 minutes, ensuring up-to-date job listings for AI-powered recommendations",
+      image: "/assets/JobScrapper.png",
+      video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
       tags: ["Python", "AWS", "PostgreSQL", "JobSpy", "Psycopg2"],
       category: "datascience",
       github: "https://github.com/acbikash13",
-      demo: "https://github.com/acbikash13",
+      demo: "#",
     },
   ]
 
   const filteredProjects = filter === "all" ? projects : projects.filter((project) => project.category === filter)
+
+  // Helper function to check if a demo link is valid
+  const hasValidDemoLink = (demoLink) => {
+    return demoLink && demoLink !== "#"
+  }
+
+  // Open video modal
+  const openVideoModal = (project) => {
+    setActiveVideo(project)
+    document.body.style.overflow = "hidden" // Prevent scrolling when modal is open
+  }
+
+  // Close video modal
+  const closeVideoModal = () => {
+    setActiveVideo(null)
+    document.body.style.overflow = "" // Restore scrolling
+  }
+
+  // Handle keyboard events for accessibility
+  const handleKeyDown = (e) => {
+    if (e.key === "Escape") {
+      closeVideoModal()
+    }
+  }
 
   return (
     <section id="projects" className="py-16 md:py-24 bg-muted/50">
@@ -150,12 +198,50 @@ export default function Projects() {
           {filteredProjects.map((project) => (
             <Card key={project.id} className="overflow-hidden group">
               <div className="relative h-48 overflow-hidden">
+                <div
+                  className="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 cursor-pointer"
+                  onClick={() => openVideoModal(project)}
+                >
+                  <video
+                    src={project.video}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    muted
+                    loop
+                    playsInline
+                    onMouseEnter={(e) => e.currentTarget.play()}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.pause()
+                      e.currentTarget.currentTime = 0
+                    }}
+                  />
+                  <div className="z-20 bg-primary/90 rounded-full p-3">
+                    <Play className="h-8 w-8 text-white" />
+                  </div>
+                </div>
                 <Image
-                  src={project.image || "/placeholder.svg"}
+                  src={project.image || "/placeholder.svg?height=400&width=600"}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="object-cover transition-transform duration-300 group-hover:opacity-0"
                 />
+                <div className="absolute top-2 right-2 bg-black/70 text-white p-1 rounded-md z-20 opacity-70 group-hover:opacity-100 transition-opacity">
+                  <div className="flex items-center gap-1 text-xs">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Click to play
+                  </div>
+                </div>
               </div>
               <CardHeader>
                 <CardTitle>{project.title}</CardTitle>
@@ -176,16 +262,60 @@ export default function Projects() {
                     <Github className="mr-2 h-4 w-4" /> Code
                   </Link>
                 </Button>
-                <Button size="sm" asChild>
-                  <Link href={project.demo} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
-                  </Link>
-                </Button>
+                {hasValidDemoLink(project.demo) && (
+                  <Button size="sm" asChild>
+                    <Link href={project.demo} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                    </Link>
+                  </Button>
+                )}
               </CardFooter>
             </Card>
           ))}
         </div>
       </div>
+
+      {/* Video Modal */}
+      {activeVideo && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+          onClick={closeVideoModal}
+          onKeyDown={handleKeyDown}
+          tabIndex={0}
+        >
+          <div className="relative w-full max-w-5xl max-h-[90vh] p-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute top-2 right-2 z-10 bg-black/50 text-white hover:bg-black/70"
+              onClick={(e) => {
+                e.stopPropagation()
+                closeVideoModal()
+              }}
+            >
+              <X className="h-6 w-6" />
+              <span className="sr-only">Close</span>
+            </Button>
+
+            <div className="bg-black rounded-lg overflow-hidden">
+              <div className="aspect-video relative">
+                <video
+                  ref={videoRef}
+                  src={activeVideo.video}
+                  className="w-full h-full"
+                  controls
+                  autoPlay
+                  onClick={(e) => e.stopPropagation()}
+                />
+              </div>
+              <div className="p-4 bg-background">
+                <h3 className="text-xl font-bold">{activeVideo.title}</h3>
+                <p className="text-muted-foreground mt-2">{activeVideo.description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
