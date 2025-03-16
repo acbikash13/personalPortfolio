@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -11,16 +11,14 @@ import Link from "next/link"
 export default function Projects() {
   const [filter, setFilter] = useState("all")
   const [activeVideo, setActiveVideo] = useState(null)
-  const videoRef = useRef(null)
 
   const projects = [
     {
       id: 1,
       title: "Job Search Platform",
-      description:
-        `Developed a full-stack job search application leveraging AI and microservices architecture to enhance job recommendations. The platform integrates web scraping to aggregate job postings from multiple sources and utilizes Llama3.1 for intelligent job matching based on user profiles. Features include real-time filtering, resume parsing, and personalized job alerts.`,
+      description: `Developed a full-stack job search application leveraging AI and microservices architecture to enhance job recommendations. The platform integrates web scraping to aggregate job postings from multiple sources and utilizes Llama3.1 for intelligent job matching based on user profiles. Features include real-time filtering, resume parsing, and personalized job alerts.`,
       image: "/assets/appjob.jpg",
-      video: "/assets/videos/AppJobTutorial.mp4",
+      video: "https://youtu.be/dvuZqDhLrtk", // Replace with your actual YouTube URL
       tags: ["Next.js", "PostgreSQL", "TypeScript", "Express.js", "Docker", "Azure", "Llama3.1"],
       category: "fullstack",
       github: "https://github.com/acbikash13",
@@ -32,20 +30,19 @@ export default function Projects() {
       description:
         "Built for a Hack Kentucky Hackathon, it is a full-stack web platform designed to streamline blood donation and management across hospitals and blood banks. The system enables real-time donor matching, reducing manual search time by 60%. It features an inventory management module to track blood supply levels across multiple institutions, ensuring optimal resource allocation.",
       image: "/assets/bloodBond.png",
-      video: "/assets/videos/BloodBond Tutorial.mp4",
+      video: "https://youtu.be/19X3iU3s7YE", // Replace with your actual YouTube URL
       tags: ["Next.js", "AWS", "PostgreSQL", "Node.js"],
       category: "fullstack",
       github: "https://github.com/orgs/BloodBondd/repositories",
       demo: "https://project-hackathon-uutj.vercel.app/",
-    }
-,    
+    },
     {
       id: 3,
       title: "Multiplayer Bingo Web Game",
       description:
         "A real-time multiplayer Bingo game featuring real-time chat, game state synchronization, and smooth player interactions using WebSockets. The backend, powered by MongoDB, stores game sessions and user progress. The game minimizes latency through optimized WebSocket event handling",
       image: "/assets//BingoGame.png",
-      video: "/assets/videos/BingoTutorial.mp4",
+      video: "https://youtu.be/C7ApiIk-_fw", // Replace with your actual YouTube URL
       tags: ["JavaScript", "WebSockets", "MongoDB", "Azure", "RESTful APIs"],
       category: "fullstack",
       github: "https://github.com/acbikash13",
@@ -57,7 +54,7 @@ export default function Projects() {
       description:
         "Built an image classification application using CNNs for real-time image categorization. The app enables users to upload images, and the model predicts categories with high accuracy. Flask serves as the backend, handling image preprocessing and model inference",
       image: "/assets/ImageClassifier.png",
-      video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      video: "https://youtu.be/dvuZqDhLrtk", // Replace with your actual YouTube URL
       tags: ["Python", "TensorFlow", "Keras", "Flask", "Azure", "CNN"],
       category: "machinelearning",
       github: "https://github.com/acbikash13",
@@ -69,7 +66,7 @@ export default function Projects() {
       description:
         "A multithreaded Java-based client-server game implementing the classic Mastermind logic puzzle. The server handles multiple concurrent player sessions using socket programming, ensuring a smooth, interactive experience",
       image: "/assets/MasterMind.png",
-      video: "/assets/videos/Mastermind Tutorial.mp4",
+      video: "https://www.youtube.com/watch?v=sPT1H2YXt6U&ab_channel=Fun2sh",
       tags: ["Java", "Multithreading", "Socket Programming"],
       category: "fullstack",
       github: "https://github.com/acbikash13/Mastermind",
@@ -81,7 +78,7 @@ export default function Projects() {
       description:
         "A university research collaboration platform designed to connect researchers and students. The app features advanced filtering, project discovery, and AI-powered recommendation systems for research opportunities. Secure authentication is implemented using OAuth",
       image: "/assets/ResearchCollabs.png",
-      video: "/assets/videos/Research Collab Tutorials.mov",
+      video: "https://youtu.be/JkNWyfzksYI", // Replace with your actual YouTube URL
       tags: ["React", "Tailwind CSS", "OAuth"],
       category: "fullstack",
       github: "https://github.com/ResearchCollaborationApp/researchAndProjectCollab",
@@ -93,7 +90,7 @@ export default function Projects() {
       description:
         "Developed a real-time object detection pipeline integrating Kafka for message streaming and Spark for distributed processing. The system leverages YOLOv3 for fast and accurate object detection on video streams",
       image: "/assets/RealTimeObjectDetection.png",
-      video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+      video: "https://youtu.be/dvuZqDhLrtk", // Replace with your actual YouTube URL
       tags: ["Python", "YOLOV3", "Kafka", "Spark", "OpenCV"],
       category: "machinelearning",
       github: "https://github.com/acbikash13/kafkaObjectDetection",
@@ -105,7 +102,7 @@ export default function Projects() {
       description:
         "A large-scale sentiment analysis system that processes over 21 million RateMyProfessor reviews, achieving 86% accuracy using a fine-tuned DistilBERT model. The system is optimized with PySpark for large-scale data processing, reducing training time by 30%",
       image: "/assets/sentimentAnalysis.png",
-      video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+      video: "https://youtu.be/dvuZqDhLrtk", // Replace with your actual YouTube URL
       tags: ["DistilBERT", "PySpark", "NLTK", "Keras", "Transformers", "PyTorch"],
       category: "datascience",
       github: "https://github.com/acbikash13/RateMyProfessorSentimentAnalysis",
@@ -117,7 +114,7 @@ export default function Projects() {
       description:
         "An industrial machine learning pipeline developed to detect defects in coil production in collaboration with North American Stainless. The model improved defect detection accuracy by 30%, leveraging deep learning techniques. PostgreSQL stores production data, and Flask serves as the API layer. Used Neural Networks, Built Data Pipelines, Performed Outlier Detections, and evaluated 10+ ML Algorithms. Worked with about 50GB of data. Can not share the code due to NDA with NAS.",
       image: "/assets/DefectCoil.png",
-      video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+      video: "https://youtu.be/dvuZqDhLrtk", // Replace with your actual YouTube URL
       tags: ["Python", "TensorFlow", "Keras", "PostgreSQL", "Flask", "Neural Networks", "Deep Learning"],
       category: "machinelearning",
       github: "https://github.com/acbikash13",
@@ -129,7 +126,7 @@ export default function Projects() {
       description:
         " Built an automated job scraping tool using Python and JobSpy, storing job postings in an AWS-hosted PostgreSQL database. The system schedules CRON jobs to collect data every 30 minutes, ensuring up-to-date job listings for AI-powered recommendations",
       image: "/assets/JobScrapper.png",
-      video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+      video: "https://youtu.be/dvuZqDhLrtk", // Replace with your actual YouTube URL
       tags: ["Python", "AWS", "PostgreSQL", "JobSpy", "Psycopg2"],
       category: "datascience",
       github: "https://github.com/acbikash13",
@@ -142,6 +139,17 @@ export default function Projects() {
   // Helper function to check if a demo link is valid
   const hasValidDemoLink = (demoLink) => {
     return demoLink && demoLink !== "#"
+  }
+
+  // Helper function to extract YouTube video ID from URL
+  const getYouTubeVideoId = (url) => {
+    if (!url) return null
+
+    // Handle different YouTube URL formats
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/
+    const match = url.match(regExp)
+
+    return match && match[2].length === 11 ? match[2] : null
   }
 
   // Open video modal
@@ -202,18 +210,6 @@ export default function Projects() {
                   className="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 cursor-pointer"
                   onClick={() => openVideoModal(project)}
                 >
-                  <video
-                    src={project.video}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    muted
-                    loop
-                    playsInline
-                    onMouseEnter={(e) => e.currentTarget.play()}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.pause()
-                      e.currentTarget.currentTime = 0
-                    }}
-                  />
                   <div className="z-20 bg-primary/90 rounded-full p-3">
                     <Play className="h-8 w-8 text-white" />
                   </div>
@@ -222,7 +218,7 @@ export default function Projects() {
                   src={project.image || "/placeholder.svg?height=400&width=600"}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:opacity-0"
+                  className="object-cover transition-transform duration-300"
                 />
                 <div className="absolute top-2 right-2 bg-black/70 text-white p-1 rounded-md z-20 opacity-70 group-hover:opacity-100 transition-opacity">
                   <div className="flex items-center gap-1 text-xs">
@@ -239,7 +235,7 @@ export default function Projects() {
                     >
                       <polygon points="5 3 19 12 5 21 5 3"></polygon>
                     </svg>
-                    Click to play
+                    Watch Demo
                   </div>
                 </div>
               </div>
@@ -275,7 +271,7 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Video Modal */}
+      {/* YouTube Video Modal */}
       {activeVideo && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
@@ -299,14 +295,20 @@ export default function Projects() {
 
             <div className="bg-black rounded-lg overflow-hidden">
               <div className="aspect-video relative">
-                <video
-                  ref={videoRef}
-                  src={activeVideo.video}
-                  className="w-full h-full"
-                  controls
-                  autoPlay
-                  onClick={(e) => e.stopPropagation()}
-                />
+                {getYouTubeVideoId(activeVideo.video) ? (
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={`https://www.youtube.com/embed/${getYouTubeVideoId(activeVideo.video)}?autoplay=1`}
+                    title={activeVideo.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    onClick={(e) => e.stopPropagation()}
+                  ></iframe>
+                ) : (
+                  <div className="flex items-center justify-center h-full bg-black text-white">Video not available</div>
+                )}
               </div>
               <div className="p-4 bg-background">
                 <h3 className="text-xl font-bold">{activeVideo.title}</h3>
