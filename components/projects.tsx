@@ -21,7 +21,7 @@ export default function Projects() {
       video: "https://youtu.be/dvuZqDhLrtk", // Replace with your actual YouTube URL
       tags: ["Next.js", "PostgreSQL", "TypeScript", "Express.js", "Docker", "Azure", "Llama3.1"],
       category: "fullstack",
-      github: "https://github.com/acbikash13",
+      github: "https://github.com/H1BMatch/",
       demo: "https://appjob.net",
     },
     {
@@ -45,7 +45,7 @@ export default function Projects() {
       video: "https://youtu.be/C7ApiIk-_fw", // Replace with your actual YouTube URL
       tags: ["JavaScript", "WebSockets", "MongoDB", "Azure", "RESTful APIs"],
       category: "fullstack",
-      github: "https://github.com/acbikash13",
+      github: "https://github.com/acbikash13/BINGO-GAME",
       demo: "https://bingogamee.azurewebsites.net/",
     },
     {
@@ -57,7 +57,7 @@ export default function Projects() {
       video: "https://youtu.be/-tCb5txySqU", // Replace with your actual YouTube URL
       tags: ["Python", "TensorFlow", "Keras", "Flask", "Azure", "CNN"],
       category: "machinelearning",
-      github: "https://github.com/acbikash13",
+      github: "https://colab.research.google.com/drive/1pc-w9DP-PI6m66RF4OdStEKqeG5Aa-ag",
       demo: "classifyimage.azurewebsites.net/",
     },
     {
@@ -129,7 +129,7 @@ export default function Projects() {
       video: "", // No video available
       tags: ["Python", "AWS", "PostgreSQL", "JobSpy", "Psycopg2"],
       category: "datascience",
-      github: "https://github.com/acbikash13",
+      github: "https://github.com/H1BMatch/",
       demo: "#",
     },
   ]
