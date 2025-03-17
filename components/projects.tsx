@@ -54,7 +54,7 @@ export default function Projects() {
       description:
         "Built an image classification application using CNNs for real-time image categorization. The app enables users to upload images, and the model predicts categories with high accuracy. Flask serves as the backend, handling image preprocessing and model inference",
       image: "/assets/ImageClassifier.png",
-      video: "https://youtu.be/dvuZqDhLrtk", // Replace with your actual YouTube URL
+      video: "https://youtu.be/-tCb5txySqU", // Replace with your actual YouTube URL
       tags: ["Python", "TensorFlow", "Keras", "Flask", "Azure", "CNN"],
       category: "machinelearning",
       github: "https://github.com/acbikash13",
@@ -90,7 +90,7 @@ export default function Projects() {
       description:
         "Developed a real-time object detection pipeline integrating Kafka for message streaming and Spark for distributed processing. The system leverages YOLOv3 for fast and accurate object detection on video streams",
       image: "/assets/RealTimeObjectDetection.png",
-      video: "https://youtu.be/dvuZqDhLrtk", // Replace with your actual YouTube URL
+      video: "", // No video available
       tags: ["Python", "YOLOV3", "Kafka", "Spark", "OpenCV"],
       category: "machinelearning",
       github: "https://github.com/acbikash13/kafkaObjectDetection",
@@ -102,7 +102,7 @@ export default function Projects() {
       description:
         "A large-scale sentiment analysis system that processes over 21 million RateMyProfessor reviews, achieving 86% accuracy using a fine-tuned DistilBERT model. The system is optimized with PySpark for large-scale data processing, reducing training time by 30%",
       image: "/assets/sentimentAnalysis.png",
-      video: "https://youtu.be/dvuZqDhLrtk", // Replace with your actual YouTube URL
+      video: "", // No video available
       tags: ["DistilBERT", "PySpark", "NLTK", "Keras", "Transformers", "PyTorch"],
       category: "datascience",
       github: "https://github.com/acbikash13/RateMyProfessorSentimentAnalysis",
@@ -114,7 +114,7 @@ export default function Projects() {
       description:
         "An industrial machine learning pipeline developed to detect defects in coil production in collaboration with North American Stainless. The model improved defect detection accuracy by 30%, leveraging deep learning techniques. PostgreSQL stores production data, and Flask serves as the API layer. Used Neural Networks, Built Data Pipelines, Performed Outlier Detections, and evaluated 10+ ML Algorithms. Worked with about 50GB of data. Can not share the code due to NDA with NAS.",
       image: "/assets/DefectCoil.png",
-      video: "https://youtu.be/dvuZqDhLrtk", // Replace with your actual YouTube URL
+      video: "", // No video available
       tags: ["Python", "TensorFlow", "Keras", "PostgreSQL", "Flask", "Neural Networks", "Deep Learning"],
       category: "machinelearning",
       github: "https://github.com/acbikash13",
@@ -126,7 +126,7 @@ export default function Projects() {
       description:
         " Built an automated job scraping tool using Python and JobSpy, storing job postings in an AWS-hosted PostgreSQL database. The system schedules CRON jobs to collect data every 30 minutes, ensuring up-to-date job listings for AI-powered recommendations",
       image: "/assets/JobScrapper.png",
-      video: "https://youtu.be/dvuZqDhLrtk", // Replace with your actual YouTube URL
+      video: "", // No video available
       tags: ["Python", "AWS", "PostgreSQL", "JobSpy", "Psycopg2"],
       category: "datascience",
       github: "https://github.com/acbikash13",
@@ -139,6 +139,11 @@ export default function Projects() {
   // Helper function to check if a demo link is valid
   const hasValidDemoLink = (demoLink) => {
     return demoLink && demoLink !== "#"
+  }
+
+  // Helper function to check if a video link is valid
+  const hasValidVideoLink = (videoLink) => {
+    return videoLink && videoLink.trim() !== ""
   }
 
   // Helper function to extract YouTube video ID from URL
@@ -154,8 +159,10 @@ export default function Projects() {
 
   // Open video modal
   const openVideoModal = (project) => {
-    setActiveVideo(project)
-    document.body.style.overflow = "hidden" // Prevent scrolling when modal is open
+    if (hasValidVideoLink(project.video)) {
+      setActiveVideo(project)
+      document.body.style.overflow = "hidden" // Prevent scrolling when modal is open
+    }
   }
 
   // Close video modal
@@ -206,38 +213,42 @@ export default function Projects() {
           {filteredProjects.map((project) => (
             <Card key={project.id} className="overflow-hidden group">
               <div className="relative h-48 overflow-hidden">
-                <div
-                  className="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 cursor-pointer"
-                  onClick={() => openVideoModal(project)}
-                >
-                  <div className="z-20 bg-primary/90 rounded-full p-3">
-                    <Play className="h-8 w-8 text-white" />
+                {hasValidVideoLink(project.video) && (
+                  <div
+                    className="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 cursor-pointer"
+                    onClick={() => openVideoModal(project)}
+                  >
+                    <div className="z-20 bg-primary/90 rounded-full p-3">
+                      <Play className="h-8 w-8 text-white" />
+                    </div>
                   </div>
-                </div>
+                )}
                 <Image
                   src={project.image || "/placeholder.svg?height=400&width=600"}
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-300"
                 />
-                <div className="absolute top-2 right-2 bg-black/70 text-white p-1 rounded-md z-20 opacity-70 group-hover:opacity-100 transition-opacity">
-                  <div className="flex items-center gap-1 text-xs">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                    Watch Demo
+                {hasValidVideoLink(project.video) && (
+                  <div className="absolute top-2 right-2 bg-black/70 text-white p-1 rounded-md z-20 opacity-70 group-hover:opacity-100 transition-opacity">
+                    <div className="flex items-center gap-1 text-xs">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                      Watch Demo
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
               <CardHeader>
                 <CardTitle>{project.title}</CardTitle>
