@@ -58,7 +58,7 @@ export default function Projects() {
       tags: ["Python", "TensorFlow", "Keras", "Flask", "Azure", "CNN"],
       category: "machinelearning",
       github: "https://colab.research.google.com/drive/1pc-w9DP-PI6m66RF4OdStEKqeG5Aa-ag",
-      demo: "classifyimage.azurewebsites.net/",
+      demo: "https://classifyimage.azurewebsites.net/",
     },
     {
       id: 5,
